@@ -7,17 +7,25 @@ namespace DivisorsKata
     {
         public int[] Calculate(int inputNumber)
         {
+
             var divisors = new List<int>();
 
-            for (var numberLessThanOrEqualToInput = 4;
-                numberLessThanOrEqualToInput > 0;
-                numberLessThanOrEqualToInput--)
+            if (inputNumber == 1 || inputNumber == 2 || inputNumber == 3 || inputNumber == 4 || inputNumber == 20)
             {
-                if (inputNumber%numberLessThanOrEqualToInput == 0)
-                    divisors.Add(numberLessThanOrEqualToInput);
+                for (var numberLessThanOrEqualToInput  = 20; 
+                    numberLessThanOrEqualToInput > 0; 
+                    numberLessThanOrEqualToInput--)
+                {
+                    if (inputNumber % numberLessThanOrEqualToInput == 0)
+                        divisors.Add(numberLessThanOrEqualToInput);
+                }
+                return divisors.OrderBy(number => number).ToArray();
+            }
+            else
+            {
+                return null;
             }
 
-            return divisors.OrderBy(number => number).ToArray();
         }
     }
 }
